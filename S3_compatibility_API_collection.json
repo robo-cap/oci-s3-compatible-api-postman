@@ -1,0 +1,147 @@
+{
+	"info": {
+		"_postman_id": "6228bbd9-7cfa-4bab-be5d-d19e030e27b3",
+		"name": "S3 compatibility API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List Bucket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{bucketnamespace}}.compat.objectstorage.{{region}}.oraclecloud.com/{{bucket-name}}",
+					"protocol": "https",
+					"host": [
+						"{{bucketnamespace}}",
+						"compat",
+						"objectstorage",
+						"{{region}}",
+						"oraclecloud",
+						"com"
+					],
+					"path": [
+						"{{bucket-name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Object",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/ailas/Downloads/testfile.txt"
+					}
+				},
+				"url": {
+					"raw": "https://{{bucketnamespace}}.compat.objectstorage.{{region}}.oraclecloud.com/{{bucket-name}}/testfile.txt",
+					"protocol": "https",
+					"host": [
+						"{{bucketnamespace}}",
+						"compat",
+						"objectstorage",
+						"{{region}}",
+						"oraclecloud",
+						"com"
+					],
+					"path": [
+						"{{bucket-name}}",
+						"testfile.txt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Service",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "awsv4",
+		"awsv4": [
+			{
+				"key": "region",
+				"value": "{{region}}",
+				"type": "string"
+			},
+			{
+				"key": "secretKey",
+				"value": "{{secretkey}}",
+				"type": "string"
+			},
+			{
+				"key": "accessKey",
+				"value": "{{accesskey}}",
+				"type": "string"
+			},
+			{
+				"key": "service",
+				"value": "s3",
+				"type": "string"
+			},
+			{
+				"key": "addAuthDataToQuery",
+				"value": false,
+				"type": "boolean"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bucketnamespace",
+			"value": "bucketnamespace",
+			"type": "default"
+		},
+		{
+			"key": "region",
+			"value": "eu-frankfurt-1",
+			"type": "default"
+		},
+		{
+			"key": "accesskey",
+			"value": "dummy_access_key",
+			"type": "default"
+		},
+		{
+			"key": "secretkey",
+			"value": "dummy_secret_key",
+			"type": "default"
+		},
+		{
+			"key": "bucket-name",
+			"value": "default-bucket",
+			"type": "default"
+		}
+	]
+}
